@@ -1,0 +1,9 @@
+@use "/src/styles/variables";
+
+.trips-list {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    padding: variables.$padding-margin-m;
+    padding-left: 1px;
+}

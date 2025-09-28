@@ -1,5 +1,6 @@
 import type { TripDtoResponse } from "@shared/api/entities/trips";
 import Table, { type ColumnsType } from "antd/es/table";
+import { memo } from "react";
 
 interface ITableTrips {
   trips: TripDtoResponse[];
@@ -8,17 +9,28 @@ interface ITableTrips {
 const TableTrips = ({ trips }: ITableTrips) => {
   const tripColumns: ColumnsType<TripDtoResponse> = [
     {
-      title: "Дата",
+      title: "ID",
+      dataIndex: "order_id",
+      key: "order_id",
+    },
+    {
+      title: "Дата отправления",
       dataIndex: "date_departure",
       key: "date_departure",
-      render: (value: string) => new Date(value).toLocaleString("ru-RU"), // красиво форматируем
+      render: (value: string) => new Date(value).toLocaleString("ru-RU"),
+    },
+    {
+      title: "Дата прибытия",
+      dataIndex: "date_arrival",
+      key: "date_arrival",
+      render: (value: string) => new Date(value).toLocaleString("ru-RU"),
     },
     {
       title: "Маршрут",
       key: "route",
       render: (_, record) => (
         <span>
-          {record.location_address} → {record.destination_address}
+          {record.location_address} → {record?.destination_address}
         </span>
       ),
     },
@@ -77,5 +89,5 @@ const TableTrips = ({ trips }: ITableTrips) => {
   );
 };
 
-export default TableTrips;
+export default memo(TableTrips);
 

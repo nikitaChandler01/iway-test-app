@@ -1,1 +1,1 @@
-export { default as TripsList } from "./TripsList";
+export { default as TripsList } from "./Trips";

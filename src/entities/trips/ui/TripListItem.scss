@@ -1,0 +1,21 @@
+@use '/src/styles/variables';
+@use '/src/styles/mixins';
+
+.trip-list-item {
+    background: variables.$bg-creamy-transparent;
+    height: fit-content;
+    width: 100%;
+    padding-bottom: variables.$padding-margin-s;
+    border-radius: variables.$border-radius-xl;
+    outline: 1px solid variables.$bg-creamy;
+
+    & .ant-card-body {
+        padding: variables.$padding-margin-s;
+    }
+
+    &__show-more {
+        margin: 0;
+        padding: 0;
+
+    }
+}

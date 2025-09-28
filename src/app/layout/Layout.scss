@@ -11,6 +11,10 @@
     background: variables.$primary-color;
     padding: variables.$padding-margin-xl;
 
+    @media (max-width: 425px) {
+        padding: variables.$padding-margin-m;
+    }
+
     &__body {
         gap: var(--gap-size);
         background: variables.$bg-primary;
@@ -18,6 +22,11 @@
         height: 100%;
         box-sizing: border-box;
         padding: variables.$padding-margin-xl;
+
+        @media (max-width: 425px) {
+            padding: variables.$padding-margin-m;
+        }
+
         border-radius: variables.$border-radius-xl;
     }
 
@@ -36,8 +45,6 @@
 
     &__logo {
         @include mixins.vh(32px, 'height');
-        @include mixins.vh(variables.$padding-margin-xl, 'padding-left');
-        @include mixins.vh(variables.$padding-margin-xl, 'padding-right');
     }
 
     // &__logout-button {

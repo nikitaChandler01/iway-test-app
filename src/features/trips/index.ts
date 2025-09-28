@@ -1,1 +1,3 @@
-export { useLoadTrips } from "./UseLoadTrips";
+export { usePagination, useLoadTrips } from "./model";
+export { TripsList, TripsPagination } from "./ui";
+
