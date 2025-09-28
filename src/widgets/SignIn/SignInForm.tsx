@@ -1,12 +1,12 @@
-import { userModel } from "@entities/user";
+import { iwayLogo } from "@assets/icons";
 import type { SignInDtoRequest } from "@shared/api/entities/user";
 import type { FormProps } from "antd";
 import { Button, Checkbox, Flex, Form, Input } from "antd";
 import "./SignInForm.scss";
-import { iwayLogo } from "@assets/icons";
+import { useLogin } from "@features/user";
 
 const SignInForm = () => {
-  const { login, error } = userModel.useLogin();
+  const { login, error } = useLogin();
   const onFinish: FormProps<SignInDtoRequest>["onFinish"] = (values) => {
     login(values);
   };
