@@ -4,15 +4,14 @@ import {
   PhoneOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import type { TripDtoResponse } from "@shared/api/entities/trips";
 import DescriptionItem from "@shared/ui/DescriptionItem/DescriptionItem";
 import { Button, Card, Flex, Typography } from "antd";
+import type { ITrip } from "../types";
 import "./TripListItem.scss";
 import TripStatus from "./TripStatus";
 const { Text } = Typography;
 
-interface ITripListItem {
-  trip: TripDtoResponse;
+interface ITripListItem extends ITrip {
   onShowMoreClick: (order_id: number) => void;
 }
 

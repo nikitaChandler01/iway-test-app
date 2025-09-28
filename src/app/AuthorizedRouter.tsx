@@ -1,5 +1,4 @@
-import { TripsPage } from "@pages/TripsPage";
-import CurrentTripPage from "@pages/TripsPage/CurrentTripPage";
+import { TripsPage, CurrentTripPage } from "@pages/TripsPage";
 import { Route, Routes } from "react-router";
 import Layout from "./layout/Layout";
 

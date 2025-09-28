@@ -1,3 +1,2 @@
-export { default as TripsPage } from "./TripsPage";
-export { default as CurrentTripPage } from "./CurrentTripPage";
+export { TripsPage, CurrentTripPage } from "./ui";
 
