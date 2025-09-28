@@ -48,7 +48,7 @@ body {
 }
 
 .ant-btn-color-dangerous {
-    color: map-get(variables.$status-colors, "error") !important;
+    color: map.get(variables.$status-colors, "error") !important;
 }
 
 li {
