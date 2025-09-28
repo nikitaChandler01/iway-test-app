@@ -1,2 +1,2 @@
 export const selectIsAuthorizated = (state: RootState) =>
-  state.user.authorizated;
+  state.user.isAuthorized;
