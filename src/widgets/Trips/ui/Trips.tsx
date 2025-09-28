@@ -8,6 +8,7 @@ const Trips = () => {
   const { trips, loading, error } = useTripsList();
   return (
     <Flex vertical style={{ width: "100%", height: "100%" }} gap={8}>
+      
       <TripsFilters />
       {/* <TableTrips trips={trips} /> */}
 

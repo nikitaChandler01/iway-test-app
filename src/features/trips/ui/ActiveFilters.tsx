@@ -1,6 +1,6 @@
-import { tripsModel } from "@entities/trips";
+import { tripsConstants, tripsModel } from "@entities/trips";
 import type { TripsDtoRequest } from "@shared/api/entities/trips";
-import { Tag, theme, type FormInstance } from "antd";
+import { Flex, Tag, theme, type FormInstance } from "antd";
 import { useSelector } from "react-redux";
 import { useActiveFilters } from "../model";
 export interface IActiveFilters {
@@ -44,7 +44,17 @@ const ActiveFilters = ({ form, disabled, onSubmit }: IActiveFilters) => {
       )}
       {filters.order_status && filters.order_status.length > 0 && (
         <Tag className="active-filter-tag" {...props} onClose={onDeleteStatus}>
-          Статус: {filters.order_status}
+          {filters.order_status?.[0] ? (
+            <span>
+              {tripsConstants.statusMap[filters.order_status[0]].text}
+            </span>
+          ) : undefined}
+          {filters.order_status?.[1] ? (
+            <span>
+              , {tripsConstants.statusMap[filters.order_status[1]].text}
+            </span>
+          ) : undefined}
+          {filters.order_status?.[2] ? <span>, ...</span> : undefined}
         </Tag>
       )}
     </>

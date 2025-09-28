@@ -1,3 +1,4 @@
+import { tripsConstants } from "@entities/trips";
 import type { TripsDtoRequest } from "@shared/api/entities/trips";
 import { Form, Input, Select, type FormInstance } from "antd";
 
@@ -16,6 +17,13 @@ const TripsFiltersForm = ({
   onFormLayoutChange,
   filters,
 }: ITripsFiltersForm) => {
+  const options = Object.keys(tripsConstants.statusMap).map(
+    (value: string) => ({
+      value,
+      label: tripsConstants.statusMap[value].text,
+    })
+  );
+
   const onChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     form.setFieldValue("names", e.target.value);
   };
@@ -55,8 +63,9 @@ const TripsFiltersForm = ({
       </Form.Item>
       <Form.Item label="Статусы поездки" name="order_status">
         <Select
+          mode="multiple"
           value={filters.order_status ?? []}
-          options={[]}
+          options={options}
           onChange={onChangeStatus}
           placeholder="Выберите статус поездки"
         />
