@@ -1,0 +1,31 @@
+@use '/src/styles/mixins' as mixins;
+@use "/src/styles/variables" as variables;
+
+.sign-in-form {
+    background: variables.$bg-primary;
+    width: variables.$col-span-size * 6;
+    padding: variables.$padding-margin-xl;
+    border-radius: variables.$border-radius-xl;
+    transition: width 0.1s ease-in-out;
+
+    @media (max-width: 1400px) {
+        width: variables.$col-span-size * 8;
+    }
+
+    @media (max-width: 1200px) {
+        width: variables.$col-span-size * 12;
+    }
+
+    @media (max-width: 700px) {
+        width: 90vw;
+    }
+
+
+    &__header {
+        margin-bottom: variables.$padding-margin-l;
+    }
+
+    &__logo {
+        @include mixins.vw(variables.$col-span-size, 'width');
+    }
+}

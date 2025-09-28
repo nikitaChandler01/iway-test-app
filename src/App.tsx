@@ -5,12 +5,21 @@ import { Provider } from "react-redux";
 import "./main.scss";
 import AppRouter from "@app/AppRouter";
 import { store } from "@app/store";
+import { ConfigProvider } from "antd";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <AppRouter />
+        <ConfigProvider
+          theme={{
+            token: {
+              colorPrimary: "#00AD5A",
+            },
+          }}
+        >
+          <AppRouter />
+        </ConfigProvider>
       </Provider>
     </BrowserRouter>
   </StrictMode>

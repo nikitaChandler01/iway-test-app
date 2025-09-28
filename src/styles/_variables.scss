@@ -4,6 +4,15 @@ $bg-primary: #FFFFFF;
 $bg-creamy: #F4F5F9;
 $font-color: #445755;
 $font-color-transparent: #44575580;
+$col-span-size: calc(100vw / 24);
+$padding-margin-s: 8px;
+$padding-margin-m: 16px;
+$padding-margin-l: 24px;
+$padding-margin-xl: 32px;
+$border-radius-s: 4px;
+$border-radius-m: 8px;
+$border-radius-l: 12px;
+$border-radius-xl: 16px;
 $status-colors: (
         "error": #d72745,
         "warning": #da9a34,

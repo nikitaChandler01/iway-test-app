@@ -5,26 +5,26 @@
 // import Layout from "./layout/Layout";
 
 const AuthorizedRouter = () => {
-  return <></>;
-//   const { user, isPending } = useGetUser();
+  return <>123</>;
+  //   const { user, isPending } = useGetUser();
   // добавить проверку на error
 
-//   if (isPending) return <FullPageLoader showText />;
+  //   if (isPending) return <FullPageLoader showText />;
 
-//   if (user) {
-//     return (
-//       <Layout>
-//         <Routes></Routes>
-//       </Layout>
-//     );
-//   }
+  //   if (user) {
+  //     return (
+  //       <Layout>
+  //         <Routes></Routes>
+  //       </Layout>
+  //     );
+  //   }
 
-//   return (
-//     //ошибка
-//     <Routes>
-//       <Route path="*" element={<NotFoundPage />} />
-//     </Routes>
-//   );
+  //   return (
+  //     //ошибка
+  //     <Routes>
+  //       <Route path="*" element={<NotFoundPage />} />
+  //     </Routes>
+  //   );
 };
 
 export default AuthorizedRouter;
