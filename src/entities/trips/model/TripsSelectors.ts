@@ -1,4 +1,7 @@
-import type { TripDtoResponse } from "@shared/api/entities/trips";
+import type {
+  TripDtoResponse,
+  TripsDtoRequest,
+} from "@shared/api/entities/trips";
 
 export const selectTrips = (state: RootState): TripDtoResponse[] =>
   state.trips.trips;
@@ -8,5 +11,6 @@ export const selectPage = (state: RootState) => state.trips.page;
 export const selectPageCount = (state: RootState) => state.trips.page_count;
 export const selectTotalItems = (state: RootState) => state.trips.total_items;
 export const selectChoosenTrip = (state: RootState) => state.trips.choosenTrip;
-export const selectFilters = (state: RootState) => state.trips.filters;
+export const selectFilters = (state: RootState): TripsDtoRequest =>
+  state.trips.filters;
 

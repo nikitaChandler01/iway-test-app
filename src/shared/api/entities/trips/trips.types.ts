@@ -137,7 +137,7 @@ export interface TripDtoResponse {
 export type TripsDtoRequest = Partial<{
   names: string;
   email: string;
-  order_status: number | number[];
+  order_status: number[];
   page: number;
   limit: number;
 }>;

@@ -44,6 +44,7 @@
     }
 
     &__logo {
+        min-height: 32px;
         @include mixins.vw(32px, 'height');
     }
 

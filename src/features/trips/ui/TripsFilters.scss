@@ -3,4 +3,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+
+    & .ant-form-item {
+        width: 100%;
+    }
 }

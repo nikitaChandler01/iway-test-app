@@ -1,57 +1,69 @@
-import { Button, Form, Input, Select } from "antd";
-import "./TripsFilters.scss";
+import {
+  CloseOutlined,
+  FilterOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
+import { Button, Drawer, Flex } from "antd";
 import { useTripsFilters } from "../model";
-import { memo } from "react";
+import ActiveFilters from "./ActiveFilters";
+import "./TripsFilters.scss";
+import TripsFiltersForm from "./TripsFiltersForm";
 
 const TripsFilters = () => {
-  const {
-    filters,
-    loading,
-    onChangeName,
-    onChangeEmail,
-    onChangeStatus,
-    onSubmit,
-  } = useTripsFilters();
+  const { filters, loading, form, open, onSubmit, onReset, onOpen, onClose } =
+    useTripsFilters();
   const onFormLayoutChange = () => {};
 
   return (
-    <Form
-      disabled={loading}
-      layout="inline"
-      variant="underlined"
-      onSubmitCapture={onSubmit}
-      onValuesChange={onFormLayoutChange}
-      className="trips-filters"
-    >
-      <Form.Item label="Имя пассажира" name="names">
-        <Input
-          value={filters.name}
-          onChange={onChangeName}
-          placeholder="Введите имя пассажира"
+    <>
+      <Flex gap={8}>
+        <Button
+          disabled={loading}
+          icon={<FilterOutlined />}
+          type="primary"
+          onClick={onOpen}
         />
-      </Form.Item>
-      <Form.Item label="Почта пассажира" name="email">
-        <Input
-          value={filters.email}
-          onChange={onChangeEmail}
-          placeholder="Введите почту пассажира"
+        <ActiveFilters
+          form={form}
+          disabled={loading}
+          onSubmit={onSubmit}
+          onReset={onReset}
         />
-      </Form.Item>
-      <Form.Item label="Статусы поездки" name="order_status">
-        <Select
-          value={filters.order_status}
-          onChange={onChangeStatus}
-          placeholder="Выберите статус поездки"
+      </Flex>
+      <Drawer
+        onClose={onClose}
+        footer={
+          <Flex gap={8}>
+            <Button
+              icon={<SearchOutlined />}
+              type="primary"
+              htmlType="submit"
+              onClick={onSubmit}
+            >
+              Найти
+            </Button>
+            <Button
+              icon={<CloseOutlined />}
+              htmlType="button"
+              onClick={() => onReset()}
+            >
+              Сбросить
+            </Button>
+          </Flex>
+        }
+        open={open}
+      >
+        <TripsFiltersForm
+          filters={filters}
+          form={form}
+          loading={loading}
+          onSubmit={onSubmit}
+          onFormLayoutChange={onFormLayoutChange}
         />
-      </Form.Item>
-      <Form.Item>
-        <Button type="primary" htmlType="submit">
-          Найти
-        </Button>
-      </Form.Item>
-    </Form>
+      </Drawer>
+    </>
   );
 };
 
-export default memo(TripsFilters);
+export default TripsFilters;
 
