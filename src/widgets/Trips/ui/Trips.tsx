@@ -1,7 +1,7 @@
 import { TripsFilters, TripsList, TripsPagination } from "@features/trips";
 import Loader from "@shared/ui/Loader/Loader";
 import { Flex } from "antd";
-import { useTripsList } from "./UseTripsList";
+import { useTripsList } from "../model";
 import CenterBox from "@shared/ui/CenterBox/CenterBox";
 
 const Trips = () => {

@@ -1,1 +1,2 @@
-export { default as TripsList } from "./Trips";
+export { TripsList, CurrentTrip } from "./ui";
+
