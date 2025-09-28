@@ -1,13 +1,19 @@
+import { EyeOutlined } from "@ant-design/icons";
 import { TripStatus } from "@entities/trips";
 import type { TripDtoResponse } from "@shared/api/entities/trips";
+import { Button } from "antd";
 import Table, { type ColumnsType } from "antd/es/table";
 import { memo } from "react";
+import { useNavigate } from "react-router";
 
 interface ITableTrips {
   trips: TripDtoResponse[];
 }
 
 const TableTrips = ({ trips }: ITableTrips) => {
+  const navigate = useNavigate();
+  const moveTo = (order_id: number) => navigate(`/trips/${order_id}`);
+
   const tripColumns: ColumnsType<TripDtoResponse> = [
     {
       title: "ID",
@@ -65,6 +71,17 @@ const TableTrips = ({ trips }: ITableTrips) => {
         <span>
           {record.price?.price ?? "-"} {record.currency ?? ""}
         </span>
+      ),
+    },
+    {
+      title: "Действия",
+      key: "actions",
+      render: (_, record) => (
+        <Button
+          type="link"
+          icon={<EyeOutlined />}
+          onClick={() => moveTo(record.order_id)}
+        />
       ),
     },
   ];
