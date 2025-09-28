@@ -4,7 +4,7 @@ import type { TripDtoResponse, TripsDtoRequest } from "./trips.types.ts";
 
 export const getTrips = async (payload: TripsDtoRequest) => {
   return (
-    await api.get<Promise<TripDtoResponse>>(apiConfig.oauth.signIn, {
+    await api.get<Promise<TripDtoResponse>>(apiConfig.trips.get, {
       params: payload,
     })
   ).data;

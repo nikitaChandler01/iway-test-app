@@ -3,6 +3,6 @@ export const apiConfig = {
     signIn: "/v3/auth/login",
   },
   trips: {
-    getTrips: `/v3/orders/trips`,
+    get: `/v3/orders/trips`,
   },
 };
