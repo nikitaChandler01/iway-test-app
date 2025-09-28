@@ -12,7 +12,8 @@ export const useLogin = () => {
   const dispatch = useDispatch();
   const [error, setError] = useState<SignInDtoResponseError | null>(null);
   const login = async (payload: SignInDtoRequest) => {
-    dispatch<AppDispatch>(loginThunk(payload))
+    const { remember, ...rest } = payload;
+    dispatch<AppDispatch>(loginThunk(rest))
       .then(parseFormResponse)
       .then((response: SignInDtoResponse) => {
         if (response.result?.token) {

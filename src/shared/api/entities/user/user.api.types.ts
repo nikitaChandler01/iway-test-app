@@ -1,5 +1,5 @@
 export type SignInDtoRequest = {
-  username: string;
+  login: string;
   password: string;
   remember?: boolean;
 };

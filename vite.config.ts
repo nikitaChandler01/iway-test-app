@@ -5,6 +5,15 @@ import svgr from "vite-plugin-svgr";
 
 // https://vite.dev/config/
 export default defineConfig({
-    plugins: [react(), tsconfigPaths(), svgr()],
-    server: { port: 5174 },
+  plugins: [react(), tsconfigPaths(), svgr()],
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://transstage1.iwayex.com/transnextgen",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
 });
+
