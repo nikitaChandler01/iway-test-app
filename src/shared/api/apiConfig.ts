@@ -2,7 +2,7 @@ const userRoute = "/api/user";
 
 export const apiConfig = {
     oauth: {
-        signIn: "/oauth/token",
+        signIn: "/v3/auth/login",
     },
     user: {
         getInfo: `${userRoute}/get`,
