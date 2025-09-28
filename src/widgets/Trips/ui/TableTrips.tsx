@@ -18,13 +18,13 @@ const TableTrips = ({ trips }: ITableTrips) => {
       title: "Дата отправления",
       dataIndex: "date_departure",
       key: "date_departure",
-      render: (value: string) => new Date(value).toLocaleString("ru-RU"),
+      render: (value: string) => value,
     },
     {
       title: "Дата прибытия",
       dataIndex: "date_arrival",
       key: "date_arrival",
-      render: (value: string) => new Date(value).toLocaleString("ru-RU"),
+      render: (value: string) => value,
     },
     {
       title: "Маршрут",

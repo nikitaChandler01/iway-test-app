@@ -25,9 +25,7 @@ const TripListItem = ({ trip, onShowMoreClick }: ITripListItem) => {
     <Card className="trip-list-item">
       <Flex vertical gap={12}>
         <Flex justify="space-between" align="center">
-          <Text strong>
-            {new Date(trip.date_departure).toLocaleString("ru-RU")}
-          </Text>
+          <Text strong>{trip.date_departure}</Text>
           <Flex gap={12} align="center">
             <TripStatus status={trip.status} />
             <Text>
