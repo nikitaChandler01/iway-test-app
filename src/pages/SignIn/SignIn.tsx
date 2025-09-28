@@ -1,4 +1,4 @@
-import CenterBox from "@shared/ui/CenterBox";
+import CenterBox from "@shared/ui/CenterBox/CenterBox";
 import { SignInForm } from "@widgets/SignIn";
 
 const SignIn = () => {

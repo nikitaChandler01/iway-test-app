@@ -2,31 +2,51 @@
 @use "/src/styles/mixins";
 
 .layout {
+    --header-size: 32px;
+    --gap-size: 16px;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
+    box-sizing: border-box;
+    scrollbar-gutter: stable both-edges;
+    background: variables.$primary-color;
+    padding: variables.$padding-margin-xl;
+
+    &__body {
+        gap: var(--gap-size);
+        background: variables.$bg-primary;
+        flex: 1 1 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: variables.$padding-margin-xl;
+        border-radius: variables.$border-radius-xl;
+    }
+
+    &__content {
+        border-radius: variables.$border-radius-xl;
+        @include mixins.vh(var(--header-size), 'header');
+        max-height: calc(100% - var(--header-size) - var(--gap-size));
+        flex: 1 1 calc(100% - var(--header-size) - var(--gap-size));
+    }
 
     &__header {
-        width: 100vw;
+        width: 100%;
         box-sizing: border-box;
-        @include mixins.vh(60px, 'height');
-        background-color: variables.$primary-color;
-        padding: 0 variables.$col-span-size;
+        @include mixins.vh(var(--header-size), 'height');
     }
 
     &__logo {
-        background: variables.$bg-creamy;
-        @include mixins.vh(60px, 'height');
+        @include mixins.vh(32px, 'height');
         @include mixins.vh(variables.$padding-margin-xl, 'padding-left');
         @include mixins.vh(variables.$padding-margin-xl, 'padding-right');
     }
 
-    &__logout-button {
-        background: variables.$bg-creamy;
-        padding: variables.$padding-margin-s;
-        color: variables.$font-color;
-        width: unset !important;
-        @include mixins.vh(48px, 'height');
-        aspect-ratio: 1 !important;
-        @include mixins.vh(24px, 'font-size');
-    }
+    // &__logout-button {
+    //     background: variables.$bg-creamy;
+    //     padding: variables.$padding-margin-s;
+    //     color: variables.$font-color;
+    //     width: unset !important;
+    //     @include mixins.vh(48px, 'height');
+    //     aspect-ratio: 1 !important;
+    //     @include mixins.vh(24px, 'font-size');
+    // }
 }

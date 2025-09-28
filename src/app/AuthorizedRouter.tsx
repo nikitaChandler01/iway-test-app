@@ -1,30 +1,16 @@
-// import { useGetUser } from "@features/Auth";
-// import { NotFoundPage } from "@pages/NotFoundPage";
-// import FullPageLoader from "@shared/ui/loaders/FullPageLoader";
-// import { Route, Routes } from "react-router-dom";
-// import Layout from "./layout/Layout";
+import { Route, Routes } from "react-router";
+import Layout from "./layout/Layout";
+import { TripsPage } from "@pages/TripsPage";
 
 const AuthorizedRouter = () => {
-  return <>123</>;
-  //   const { user, isPending } = useGetUser();
-  // добавить проверку на error
-
-  //   if (isPending) return <FullPageLoader showText />;
-
-  //   if (user) {
-  //     return (
-  //       <Layout>
-  //         <Routes></Routes>
-  //       </Layout>
-  //     );
-  //   }
-
-  //   return (
-  //     //ошибка
-  //     <Routes>
-  //       <Route path="*" element={<NotFoundPage />} />
-  //     </Routes>
-  //   );
+  return (
+    <Layout>
+      <Routes>
+        <Route path="/trips" element={<TripsPage />} />
+        <Route path="/*" element={<TripsPage />} />
+      </Routes>
+    </Layout>
+  );
 };
 
 export default AuthorizedRouter;
