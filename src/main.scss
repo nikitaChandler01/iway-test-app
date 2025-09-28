@@ -1,8 +1,28 @@
-input:-webkit-autofill {
-    box-shadow: 0 0 0px 1000px transparent inset !important;
-    transition: background-color 9999s ease-in-out 0s;
+@use "/src/styles/variables";
+@import "/src/styles/mixins-usage";
+@import "/src/styles/input";
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+html {
+    font-family: "PT Sans", sans-serif;
+    color: variables.$font-color;
+    font-weight: 400;
+    background-color: variables.$bg-creamy;
 }
 
-html * {
-    font-family: "Raleway", sans-serif;
+body {
+    margin: 0 auto;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }

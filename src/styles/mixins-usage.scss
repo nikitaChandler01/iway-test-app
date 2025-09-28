@@ -1,0 +1,7 @@
+@use './mixins' as mixin;
+@include mixin.justifyText("left");
+@include mixin.justifyText("right");
+@include mixin.justifyText("center");
+@include mixin.alignText("top");
+@include mixin.alignText("middle");
+@include mixin.alignText("bottom");

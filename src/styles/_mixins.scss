@@ -1,0 +1,45 @@
+@use "./variables";
+
+@mixin vh($size, $property) {
+  $design-height: 1080;
+  --#{$property}: calc(100vh * (#{$size} / #{$design-height}));
+  #{$property}: var(--#{$property});
+}
+
+@mixin vw($size, $property) {
+  $design-width: 1920;
+  --#{$property}: calc(100vw * (#{$size} / #{$design-width}));
+  #{$property}: var(--#{$property});
+}
+
+@mixin titleLvl($lvl) {
+  .title--lvl-#{$lvl} {
+    @include vw(56, 'base-font-size');
+    font-size: calc(var(--base-font-size) * (#{$lvl} / 5));
+  }
+}
+
+@mixin justifyText($justify) {
+  .justify-#{$justify} {
+    text-align: #{$justify};
+  }
+}
+
+@mixin alignText($align) {
+  .align-#{$align} {
+    vertical-align: #{$align};
+  }
+}
+
+@mixin statusMessage($status) {
+  .#{$status}-text {
+    text-align: center;
+    color: map-get(variables.$status-colors, $status);
+
+    &--bg {
+      background: rgb(map-get(variables.$status-colors, $status), 0.15);
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.5rem;
+    }
+  }
+}
