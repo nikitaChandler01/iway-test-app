@@ -7,6 +7,7 @@ import type {
 } from "@shared/api/entities/user";
 import { useState } from "react";
 import { parseFormResponse } from "@shared/lib/parseThunksResponse";
+import { setIsAuthorized } from "./UserSlice";
 
 export const useLogin = () => {
   const dispatch = useDispatch();
@@ -16,8 +17,12 @@ export const useLogin = () => {
     dispatch<AppDispatch>(loginThunk(rest))
       .then(parseFormResponse)
       .then((response: SignInDtoResponse) => {
-        if (response.result?.token) {
-          // Handle successful login
+        const token = response.result?.token;
+        if (token) {
+          if (remember) {
+            localStorage.setItem("access_token", token);
+          }
+          dispatch(setIsAuthorized(true));
         } else {
           setError(response?.error ?? null);
         }
