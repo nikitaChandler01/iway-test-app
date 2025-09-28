@@ -1,0 +1,32 @@
+@use "/src/styles/variables";
+@use "/src/styles/mixins";
+
+.layout {
+    height: 100vh;
+    width: 100vw;
+
+    &__header {
+        width: 100vw;
+        box-sizing: border-box;
+        @include mixins.vh(60px, 'height');
+        background-color: variables.$primary-color;
+        padding: 0 variables.$col-span-size;
+    }
+
+    &__logo {
+        background: variables.$bg-creamy;
+        @include mixins.vh(60px, 'height');
+        @include mixins.vh(variables.$padding-margin-xl, 'padding-left');
+        @include mixins.vh(variables.$padding-margin-xl, 'padding-right');
+    }
+
+    &__logout-button {
+        background: variables.$bg-creamy;
+        padding: variables.$padding-margin-s;
+        color: variables.$font-color;
+        width: unset !important;
+        @include mixins.vh(48px, 'height');
+        aspect-ratio: 1 !important;
+        @include mixins.vh(24px, 'font-size');
+    }
+}

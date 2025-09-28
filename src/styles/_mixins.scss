@@ -1,13 +1,13 @@
 @use "./variables";
 
 @mixin vh($size, $property) {
-  $design-height: 1080;
+  $design-height: 1080px;
   --#{$property}: calc(100vh * (#{$size} / #{$design-height}));
   #{$property}: var(--#{$property});
 }
 
 @mixin vw($size, $property) {
-  $design-width: 1920;
+  $design-width: 1920px;
   --#{$property}: calc(100vw * (#{$size} / #{$design-width}));
   #{$property}: var(--#{$property});
 }
