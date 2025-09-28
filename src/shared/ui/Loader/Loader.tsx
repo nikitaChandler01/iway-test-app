@@ -1,8 +1,6 @@
+import { LoadingOutlined } from "@ant-design/icons";
 import { Spin, Typography } from "antd";
 import CenterBox from "../CenterBox/CenterBox";
-import { LoadingOutlined } from "@ant-design/icons";
-import { useEffect, useRef } from "react";
-import { time } from "console";
 
 interface ILoader {
   spinning?: boolean;
