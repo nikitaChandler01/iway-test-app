@@ -26,6 +26,7 @@
     }
 
     &__logo {
-        @include mixins.vw(variables.$col-span-size, 'width');
+        min-width: 80px;
+        @include mixins.vw(100px, 'width');
     }
 }
