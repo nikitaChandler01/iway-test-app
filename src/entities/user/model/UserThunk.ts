@@ -9,7 +9,7 @@ export const loginThunk = createAsyncThunk(
   async (payload: SignInDtoRequest, { rejectWithValue }) => {
     try {
       const response = await userApiService.login(payload);
-      return response.token;
+      return response;
     } catch (error: any) {
       console.log(error);
       return rejectWithValue({
@@ -19,3 +19,4 @@ export const loginThunk = createAsyncThunk(
     }
   }
 );
+
