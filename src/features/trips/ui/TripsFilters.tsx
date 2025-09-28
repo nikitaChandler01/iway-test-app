@@ -16,8 +16,9 @@ const TripsFilters = () => {
 
   return (
     <>
-      <Flex gap={8}>
+      <Flex gap={8} wrap="wrap">
         <Button
+          style={{ minWidth: 32 }}
           disabled={loading}
           icon={<FilterOutlined />}
           type="primary"

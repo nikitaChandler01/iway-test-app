@@ -14,7 +14,7 @@
 
 @mixin titleLvl($lvl) {
   .title--lvl-#{$lvl} {
-    @include vw(56, 'base-font-size');
+    @include vw(120px, 'base-font-size');
     font-size: calc(var(--base-font-size) * (#{$lvl} / 5));
   }
 }

@@ -7,9 +7,11 @@ import { parseFormResponse } from "@shared/lib/parseThunksResponse";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { userModel } from "@entities/user";
+import { useNavigate } from "react-router";
 
 export const useLogin = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [error, setError] = useState<SignInDtoResponseError | null>(null);
   const login = async (payload: SignInDtoRequest) => {
     const { remember, ...rest } = payload;
@@ -20,6 +22,7 @@ export const useLogin = () => {
         if (token) {
           if (remember) {
             localStorage.setItem("access_token", token);
+            navigate("/");
           }
         } else {
           setError(response?.error ?? null);

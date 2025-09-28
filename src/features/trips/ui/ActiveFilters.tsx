@@ -1,6 +1,6 @@
 import { tripsModel } from "@entities/trips";
 import type { TripsDtoRequest } from "@shared/api/entities/trips";
-import { Flex, Tag, theme, type FormInstance } from "antd";
+import { Tag, theme, type FormInstance } from "antd";
 import { useSelector } from "react-redux";
 import { useActiveFilters } from "../model";
 export interface IActiveFilters {
@@ -23,6 +23,7 @@ const ActiveFilters = ({ form, disabled, onSubmit }: IActiveFilters) => {
     display: "flex",
     alignItems: "center",
     opacity: 0.8,
+    height: 32,
   };
   const props = {
     closable: !disabled,
@@ -30,28 +31,23 @@ const ActiveFilters = ({ form, disabled, onSubmit }: IActiveFilters) => {
     style,
   };
   return (
-    <Flex wrap gap={8}>
+    <>
       {filters.names && (
-        <Tag {...props} onClose={onDeleteNames}>
+        <Tag className="active-filter-tag" {...props} onClose={onDeleteNames}>
           Имя: {filters.names}
         </Tag>
       )}
       {filters.email && (
-        <Tag
-          closable={!disabled}
-          color={token.colorPrimary}
-          style={style}
-          onClose={onDeleteEmail}
-        >
+        <Tag className="active-filter-tag" {...props} onClose={onDeleteEmail}>
           Почта: {filters.email}
         </Tag>
       )}
       {filters.order_status && filters.order_status.length > 0 && (
-        <Tag {...props} onClose={onDeleteStatus}>
+        <Tag className="active-filter-tag" {...props} onClose={onDeleteStatus}>
           Статус: {filters.order_status}
         </Tag>
       )}
-    </Flex>
+    </>
   );
 };
 

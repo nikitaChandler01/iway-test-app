@@ -1,32 +1,27 @@
-import type { TripDtoResponse } from "@shared/api/entities/trips";
-import { Flex, Typography, Tag, Card, Button } from "antd";
-import "./TripListItem.scss";
 import {
   CarOutlined,
   MailOutlined,
   PhoneOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import type { TripDtoResponse } from "@shared/api/entities/trips";
 import DescriptionItem from "@shared/ui/DescriptionItem/DescriptionItem";
+import { Button, Card, Flex, Typography } from "antd";
+import "./TripListItem.scss";
+import TripStatus from "./TripStatus";
 const { Text } = Typography;
 
 interface ITripListItem {
   trip: TripDtoResponse;
+  onShowMoreClick: (order_id: number) => void;
 }
 
-const TripListItem = ({ trip }: ITripListItem) => {
+const TripListItem = ({ trip, onShowMoreClick }: ITripListItem) => {
   const passenger = trip.passengers?.[0];
+  const handleShowMoreClick = () => {
+    onShowMoreClick(trip.order_id);
+  };
 
-  const statusMap: Record<number, { text: string; color: string }> = {
-    0: { text: "Новый", color: "blue" },
-    1: { text: "Подтверждена", color: "green" },
-    2: { text: "Завершена", color: "default" },
-    3: { text: "Отменена", color: "red" },
-  };
-  const status = statusMap[trip.status] ?? {
-    text: "Неизвестно",
-    color: "default",
-  };
   return (
     <Card className="trip-list-item">
       <Flex vertical gap={12}>
@@ -35,7 +30,7 @@ const TripListItem = ({ trip }: ITripListItem) => {
             {new Date(trip.date_departure).toLocaleString("ru-RU")}
           </Text>
           <Flex gap={12} align="center">
-            <Tag color={status.color}>{status.text}</Tag>
+            <TripStatus status={trip.status} />
             <Text>
               {trip.price?.price ?? "-"} {trip.currency ?? ""}
             </Text>
@@ -90,7 +85,12 @@ const TripListItem = ({ trip }: ITripListItem) => {
           )}
         </Flex>
         <Flex justify="end">
-          <Button className="trip-card__show-more" size="small" type="link">
+          <Button
+            onClick={handleShowMoreClick}
+            className="trip-card__show-more"
+            size="small"
+            type="link"
+          >
             Подробнее
           </Button>
         </Flex>

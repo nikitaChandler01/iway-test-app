@@ -1,3 +1,4 @@
+import { TripStatus } from "@entities/trips";
 import type { TripDtoResponse } from "@shared/api/entities/trips";
 import Table, { type ColumnsType } from "antd/es/table";
 import { memo } from "react";
@@ -54,18 +55,7 @@ const TableTrips = ({ trips }: ITableTrips) => {
       dataIndex: "status",
       key: "status",
       render: (status: number) => {
-        // здесь можно сделать enum со статусами
-        const statusMap: Record<number, { text: string; color: string }> = {
-          0: { text: "Новый", color: "blue" },
-          1: { text: "Подтверждена", color: "green" },
-          2: { text: "Завершена", color: "gray" },
-          3: { text: "Отменена", color: "red" },
-        };
-        const item = statusMap[status] ?? {
-          text: "Неизвестно",
-          color: "default",
-        };
-        return <span style={{ color: item.color }}>{item.text}</span>;
+        return <TripStatus status={status} />;
       },
     },
     {
