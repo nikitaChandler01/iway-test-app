@@ -4,7 +4,7 @@ import type { ITrip } from "../types";
 const TripRoute = ({ trip }: ITrip) => {
   return (
     <Flex vertical gap={8}>
-      <span>Маршрут:</span>
+      <span style={{ fontWeight: "bold" }}>Маршрут:</span>
       <Timeline
         items={[
           {

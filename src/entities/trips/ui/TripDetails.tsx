@@ -14,7 +14,7 @@ const TripDetails = ({ trip }: ITrip) => {
 
   return (
     <Flex vertical gap={8}>
-      <span>Детали поездки</span>
+      <span style={{ fontWeight: "bold" }}>Детали поездки:</span>
       <DescriptionItem
         labelStyle={labelStyle}
         label="Отправление"
