@@ -5,11 +5,11 @@
     "useDefineForClassFields": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "types": ["vite/client"],
+    "types": ["node", "vite/client"],
     "skipLibCheck": true,
     "baseUrl": "./src",
     "paths": {
-     "@app/*": ["app/*", "app/*/index"],
+      "@app/*": ["app/*", "app/*/index"],
       "@assets/*": ["assets/*", "assets/*/index"],
       "@pages/*": ["pages/*", "pages/*/index"],
       "@widgets/*": ["widgets/*", "widgets/*/index"],
@@ -35,3 +35,4 @@
   },
   "include": ["src"]
 }
+
