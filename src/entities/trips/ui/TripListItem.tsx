@@ -1,6 +1,13 @@
 import type { TripDtoResponse } from "@shared/api/entities/trips";
 import { Flex, Typography, Tag, Card, Button } from "antd";
 import "./TripListItem.scss";
+import {
+  CarOutlined,
+  MailOutlined,
+  PhoneOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import DescriptionItem from "@shared/ui/DescriptionItem/DescriptionItem";
 const { Text } = Typography;
 
 interface ITripListItem {
@@ -35,17 +42,51 @@ const TripListItem = ({ trip }: ITripListItem) => {
           </Flex>
         </Flex>
         <Flex vertical gap={6}>
-          <Text>
-            <strong>Маршрут:</strong> {trip.location_address} →{" "}
-            {trip.destination_address}
-          </Text>
+          <DescriptionItem
+            label={"Маршрут:"}
+            value={
+              <>
+                {trip.location_address} → {trip.destination_address}
+              </>
+            }
+          />
           {passenger && (
-            <Text type="secondary">
-              👤 {passenger.name} {passenger.phone && `| 📞 ${passenger.phone}`}
-            </Text>
+            <Flex gap={16} wrap>
+              <DescriptionItem
+                label={
+                  <span>
+                    <UserOutlined /> Пассажир:
+                  </span>
+                }
+                value={passenger.name}
+              />
+              <DescriptionItem
+                label={
+                  <span>
+                    <PhoneOutlined /> Телефон:
+                  </span>
+                }
+                value={passenger.phone}
+              />
+              <DescriptionItem
+                label={
+                  <span>
+                    <MailOutlined /> Почта:
+                  </span>
+                }
+                value={passenger.email}
+              />
+            </Flex>
           )}
           {trip.car_data?.car_class && (
-            <Text type="secondary">🚗 {trip.car_data.car_class}</Text>
+            <DescriptionItem
+              label={
+                <span>
+                  <CarOutlined /> Тариф:
+                </span>
+              }
+              value={trip.car_data.car_class}
+            />
           )}
         </Flex>
         <Flex justify="end">

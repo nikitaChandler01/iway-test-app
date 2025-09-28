@@ -1,5 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { loginThunk } from "./UserThunk";
+import { apiService } from "@shared/api/api";
 
 export interface IUser {
   isAuthorized: boolean;
@@ -19,8 +20,10 @@ export const userSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(loginThunk.fulfilled, (state) => {
+    builder.addCase(loginThunk.fulfilled, (state, action) => {
       state.isAuthorized = true;
+      if (action.payload.result)
+        apiService.setAuthorizationHeader(action.payload.result.token);
     });
   },
 });

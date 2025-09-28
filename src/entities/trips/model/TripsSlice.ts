@@ -1,5 +1,8 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { TripDtoResponse } from "@shared/api/entities/trips";
+import type {
+  TripDtoResponse,
+  TripsDtoRequest,
+} from "@shared/api/entities/trips";
 import { loadTripsThunk } from "./TripsThunk";
 
 export interface ITrips {
@@ -10,16 +13,18 @@ export interface ITrips {
   total_items: number | null;
   error: TError | null;
   loading: boolean;
+  filters: TripsDtoRequest;
 }
 
 const initialState: ITrips = {
   trips: [],
   choosenTrip: null,
   page_count: null,
-  page: null,
+  page: 1,
   total_items: null,
   error: null,
   loading: false,
+  filters: {},
 };
 
 export const tripsSlice = createSlice({
@@ -28,6 +33,12 @@ export const tripsSlice = createSlice({
   reducers: {
     setTrips: (state, action: PayloadAction<TripDtoResponse[]>) => {
       state.trips = action.payload;
+    },
+    setPage: (state, action: PayloadAction<number>) => {
+      state.page = action.payload;
+    },
+    setFilters: (state, action: PayloadAction<TripsDtoRequest>) => {
+      state.filters = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -49,5 +60,5 @@ export const tripsSlice = createSlice({
   },
 });
 
-export const { setTrips } = tripsSlice.actions;
+export const { setTrips, setPage, setFilters } = tripsSlice.actions;
 

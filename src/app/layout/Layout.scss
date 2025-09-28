@@ -44,16 +44,7 @@
     }
 
     &__logo {
-        @include mixins.vh(32px, 'height');
+        @include mixins.vw(32px, 'height');
     }
 
-    // &__logout-button {
-    //     background: variables.$bg-creamy;
-    //     padding: variables.$padding-margin-s;
-    //     color: variables.$font-color;
-    //     width: unset !important;
-    //     @include mixins.vh(48px, 'height');
-    //     aspect-ratio: 1 !important;
-    //     @include mixins.vh(24px, 'font-size');
-    // }
 }

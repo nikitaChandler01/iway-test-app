@@ -138,6 +138,8 @@ export type TripsDtoRequest = Partial<{
   names: string;
   email: string;
   order_status: number | number[];
+  page: number;
+  limit: number;
 }>;
 
 export interface TripsGetResponse {
