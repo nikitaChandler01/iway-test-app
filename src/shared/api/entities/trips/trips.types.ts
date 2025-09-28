@@ -140,3 +140,13 @@ export type TripsDtoRequest = Partial<{
   order_status: number | number[];
 }>;
 
+export interface TripsGetResponse {
+  orders: TripDtoResponse[];
+  page_data: {
+    items_on_page: number;
+    total_items: number;
+    page_count: number;
+    page: number;
+  };
+}
+

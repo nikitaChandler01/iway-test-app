@@ -1,10 +1,10 @@
 import { api } from "../../api";
 import { apiConfig } from "../../apiConfig";
-import type { TripDtoResponse, TripsDtoRequest } from "./trips.types.ts";
+import type { TripsDtoRequest, TripsGetResponse } from "./trips.types.ts";
 
-export const getTrips = async (payload: TripsDtoRequest) => {
+export const getTrips = async (payload: TripsDtoRequest | undefined) => {
   return (
-    await api.get<Promise<TripDtoResponse>>(apiConfig.trips.get, {
+    await api.get<Promise<TResponse<TripsGetResponse>>>(apiConfig.trips.get, {
       params: payload,
     })
   ).data;
