@@ -5,14 +5,13 @@ import svgr from "vite-plugin-svgr";
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
-  // Загружаем env-файлы (например, .env.development, .env.production)
   const env = loadEnv(mode, process.cwd(), "");
   return {
     plugins: [react(), tsconfigPaths(), svgr()],
     server: {
       proxy: {
         "/api": {
-          target: env.VITE_APP_API_URL, // берем из .env
+          target: env.VITE_APP_API_URL,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ""),
         },
