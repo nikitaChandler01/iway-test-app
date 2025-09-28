@@ -17,10 +17,10 @@ const TripsFiltersForm = ({
   onFormLayoutChange,
   filters,
 }: ITripsFiltersForm) => {
-  const options = Object.keys(tripsConstants.statusMap).map(
-    (value: string) => ({
-      value,
-      label: tripsConstants.statusMap[value].text,
+  const options = Object.entries(tripsConstants.statusMap).map(
+    ([key, status]) => ({
+      value: Number(key),
+      label: status.text,
     })
   );
 

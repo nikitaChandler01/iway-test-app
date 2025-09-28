@@ -50,7 +50,7 @@ export const tripsSlice = createSlice({
       state.total_items = total_items;
       state.loading = false;
     });
-    builder.addCase(loadTripsThunk.pending, (state, action) => {
+    builder.addCase(loadTripsThunk.pending, (state) => {
       state.loading = true;
     });
     builder.addCase(loadTripsThunk.rejected, (state, action) => {

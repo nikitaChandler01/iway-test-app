@@ -1,6 +1,6 @@
 import { tripsConstants, tripsModel } from "@entities/trips";
 import type { TripsDtoRequest } from "@shared/api/entities/trips";
-import { Flex, Tag, theme, type FormInstance } from "antd";
+import { Tag, theme, type FormInstance } from "antd";
 import { useSelector } from "react-redux";
 import { useActiveFilters } from "../model";
 export interface IActiveFilters {
